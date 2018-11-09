@@ -28,16 +28,16 @@ function GenerateMoon(outputSize, refinementLevel, outputName, genOuterSTL)
 	
 	local heightmap = ImageSampler({
 		-- Filename = 'Examples/map/moonBumpMap.png',
-		-- Filename = 'Examples/map/moonBumpAddInvertedColorMap.png',
+		Filename = 'Examples/map/moonBumpAddInvertedColorMap.png',
 		-- Filename = 'Examples/map/moonBumpAddInvertedColorMap5to3.png',
-		Filename = 'Examples/map/moonBumpAddInvertedColorMap.23k.png',
+		-- Filename = 'Examples/map/moonBumpAddInvertedColorMap.23k.png',
 		Interpolate = true,
 		Blur = 1, -- smoothen surface
 	})
 
 	local thicknessMap = ImageSampler({
-		-- Filename = 'Examples/map/moonColorMap.png',
-		Filename = 'Examples/map/moonColorMap.23k.png',
+		Filename = 'Examples/map/moonColorMap.png',
+		-- Filename = 'Examples/map/moonColorMap.23k.png',
 		Interpolate = true,
 		Blur = 1, -- smoothen interior shape
 	})
