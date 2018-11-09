@@ -35,7 +35,15 @@ defaultviewer = SceneViewer({
 		});
 --]]
 
-defaultfilemanager = FileManager();
+defaultfilemanager = FileManager({
+	DefaultName = 'NewModel.lua',
+	ExtFilter = 'Lua Files|*.lua;*.fab|',
+	})
+stlfilemanager = FileManager({
+	DefaultName = 'NewModel.stl',
+	ExtFilter = 'STL Files|*.stl|',
+	})
+
 defaultscene = Scene()
 defaultviewer = SceneViewer()
 

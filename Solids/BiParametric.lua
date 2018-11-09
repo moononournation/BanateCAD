@@ -12,7 +12,7 @@ class.BiParametric(Shape)
 function BiParametric:_init(params)
 	params = params or {}		-- create object if user does not provide one
 
-	Shape._init(self, params);
+	Shape._init(self, params)
 
 
 	self.USteps = params.USteps or 10
@@ -20,8 +20,70 @@ function BiParametric:_init(params)
 	self.ColorSampler = params.ColorSampler or nil
 	self.VertexFunction = params.VertexFunction or nil
 	self.Thickness = params.Thickness or nil
+	self.ThicknessMap = params.ThicknessMap or nil
+	self.BasicThickness = params.BasicThickness or 0
 end
 
+function BiParametric.WriteFaces(self, writer)
+	for w=0, self.WSteps-1 do
+		local w1 = w + 1
+		for u=0, self.USteps-1 do
+			local u1
+			if u == self.USteps-1 then
+				u1 = 0 -- last column connect to first column
+			else
+				u1 = u + 1
+			end
+			local v1, n1 = self:GetVertex(u/self.USteps, w/self.WSteps)
+			local v2, n2 = self:GetVertex(u1/self.USteps, w/self.WSteps)
+			local v3, n3 = self:GetVertex(u1/self.USteps, w1/self.WSteps)
+			local v4, n4 = self:GetVertex(u/self.USteps, w1/self.WSteps)
+
+			if (w > 0) then --dirty check south pole
+				writer:WriteFace({v1, v2, v3}, nil)
+			end
+			if w < (self.WSteps-1) then -- dirty check north pole
+				writer:WriteFace({v1, v3, v4}, nil)
+			end
+
+			if self.Thickness ~= nil then
+				local iv1, iv2, iv3, iv4
+				if self.ThicknessMap ~= nil then
+					local t1, t2, t3, t4
+					if (w == 0) or (w == self.WSteps) then
+						t1 = self.BasicThickness + ((1 - self.ThicknessMap:GetHeight(0, w/self.WSteps)) * self.Thickness)
+						t2 = self.BasicThickness + ((1 - self.ThicknessMap:GetHeight(0, w/self.WSteps)) * self.Thickness)
+					else
+						t1 = self.BasicThickness + ((1 - self.ThicknessMap:GetHeight(u/self.USteps, w/self.WSteps)) * self.Thickness)
+						t2 = self.BasicThickness + ((1 - self.ThicknessMap:GetHeight(u1/self.USteps, w/self.WSteps)) * self.Thickness)
+					end
+					if (w1 == 0) or (w1 == self.WSteps) then
+						t3 = self.BasicThickness + ((1 - self.ThicknessMap:GetHeight(0, w1/self.WSteps)) * self.Thickness)
+						t4 = self.BasicThickness + ((1 - self.ThicknessMap:GetHeight(0, w1/self.WSteps)) * self.Thickness)
+					else
+						t3 = self.BasicThickness + ((1 - self.ThicknessMap:GetHeight(u1/self.USteps, w1/self.WSteps)) * self.Thickness)
+						t4 = self.BasicThickness + ((1 - self.ThicknessMap:GetHeight(u/self.USteps, w1/self.WSteps)) * self.Thickness)
+					end
+					iv1 = vec3_add(vec3_mults(n1, t1), v1)
+					iv2 = vec3_add(vec3_mults(n2, t2), v2)
+					iv3 = vec3_add(vec3_mults(n3, t3), v3)
+					iv4 = vec3_add(vec3_mults(n4, t4), v4)
+				else
+					iv1 = vec3_add(vec3_mults(n1, self.Thickness), v1)
+					iv2 = vec3_add(vec3_mults(n2, self.Thickness), v2)
+					iv3 = vec3_add(vec3_mults(n3, self.Thickness), v3)
+					iv4 = vec3_add(vec3_mults(n4, self.Thickness), v4)
+				end
+				if (w > 0) then --dirty check south pole
+					writer:WriteFace({iv1, iv3, iv2}, nil)
+				end
+				if w < (self.WSteps-1) then -- dirty check north pole
+					writer:WriteFace({iv1, iv4, iv3}, nil)
+				end
+			end
+		end
+	end
+end
 
 -- row == 0, WSteps+1
 -- column == 0, USteps+1
@@ -30,13 +92,17 @@ function BiParametric.GetIndex(self, row, column, offset)
 end
 
 function BiParametric.GetFaces(self)
-	local faces = {};
+	local faces = {}
 
 	for w=0, self.WSteps-1 do
 		for u=0, self.USteps-1 do
+			local u1 = u + 1
+			if u == self.USteps-1 then
+				u1 = 0 -- last column connect to first column
+			end
 			local v1 = self:GetIndex(w, u, 0)
-			local v2 = self:GetIndex(w, u+1, 0)
-			local v3 = self:GetIndex(w+1, u+1, 0)
+			local v2 = self:GetIndex(w, u1, 0)
+			local v3 = self:GetIndex(w+1, u1, 0)
 			local v4 = self:GetIndex(w+1, u, 0)
 
 			local tri1 = {v1, v2, v3}
@@ -53,8 +119,12 @@ function BiParametric.GetFaces(self)
 			-- if a triangle is essentially non-existant, and
 			-- eliminate it from the list of faces
 			-- This happens at the poles of an ellipsoid for example
-			table.insert(faces, tri1)
-			table.insert(faces, tri2)
+			if (w > 0) then --dirty check south pole
+				table.insert(faces, tri1)
+			end
+			if w < (self.WSteps-1) then -- dirty check north pole
+				table.insert(faces, tri2)
+			end
 		end
 	end
 
@@ -69,9 +139,13 @@ function BiParametric.GetFaces(self)
 	-- to describe the inside faces
 	for w=0, self.WSteps-1 do
 		for u=0, self.USteps-1 do
+			local u1 = u + 1
+			if u == self.USteps-1 then
+				u1 = 0 -- last column connect to first column
+			end
 			local iv1 = self:GetIndex(w, u, offset)
-			local iv2 = self:GetIndex(w, u+1, offset)
-			local iv3 = self:GetIndex(w+1, u+1, offset)
+			local iv2 = self:GetIndex(w, u1, offset)
+			local iv3 = self:GetIndex(w+1, u1, offset)
 			local iv4 = self:GetIndex(w+1, u, offset)
 
 			local tri3 = {iv1, iv3, iv2}
@@ -93,19 +167,29 @@ function BiParametric.GetFaces(self)
 			-- if a triangle is essentially non-existant, and
 			-- eliminate it from the list of faces
 			-- This happens at the poles of an ellipsoid for example
+			if (w > 0) then -- dirty check south pole
 				table.insert(faces, tri3)
+			end
+			if w < (self.WSteps-1) then -- dirty check north pole
 				table.insert(faces, tri4)
+			end
 		end
 	end
 
 
 	-- Create the edging faces
 
+--dirty commented out, I think it should required if not generating full sphere
+--[[
 	-- Front Edge, u = 0,self.USteps-1, w=0
 	for col = 0, (self.USteps-1) do
+		local col1 = col + 1
+		if col == self.USteps-1 then
+			col1 = 0 -- last column connect to first column
+		end
 		local ffv1 = self:GetIndex(0,col, offset)
-		local ffv2 = self:GetIndex(0,col+1, offset)
-		local ffv3 = self:GetIndex(0,col+1, 0)
+		local ffv2 = self:GetIndex(0,col1, offset)
+		local ffv3 = self:GetIndex(0,col1, 0)
 		local ffv4 = self:GetIndex(0,col, 0)
 
 		local tri5 = {ffv1, ffv2, ffv3}
@@ -118,14 +202,17 @@ function BiParametric.GetFaces(self)
 
 	-- Back Edge, u = 0,self.USteps-1, w=self.WSteps
 	for col = 0, (self.USteps-1) do
+		local col1 = col + 1
+		if col == self.USteps-1 then
+			col1 = 0 -- last column connect to first column
+		end
 		local bfv1 = self:GetIndex(self.WSteps, col, offset)
-		local bfv2 = self:GetIndex(self.WSteps, col+1, offset)
-		local bfv3 = self:GetIndex(self.WSteps, col+1, 0)
+		local bfv2 = self:GetIndex(self.WSteps, col1, offset)
+		local bfv3 = self:GetIndex(self.WSteps, col1, 0)
 		local bfv4 = self:GetIndex(self.WSteps, col, 0)
 
 		local tri9 = {bfv1, bfv3, bfv2}
 		local tri10 = {bfv1, bfv4, bfv3}
-
 
 		table.insert(faces, tri9)
 		table.insert(faces, tri10)
@@ -160,8 +247,9 @@ function BiParametric.GetFaces(self)
 		table.insert(faces, tri11)
 		table.insert(faces, tri12)
 	end
+--]]
 
-	return faces;
+return faces
 end
 
 function BiParametric.GetVertex(self, u, w)
@@ -173,15 +261,24 @@ function BiParametric.GetVertex(self, u, w)
 end
 
 function BiParametric.GetVertices(self)
-	local vertices = {};
-	local normals = {};
+	local vertices = {}
+	local normals = {}
+	local thicks = {}
 
 	for w=0, self.WSteps do
 		for u=0, self.USteps do
 			local svert, normal = self:GetVertex(u/self.USteps, w/self.WSteps)
-			table.insert(vertices, vec.new(svert));
-			if normal ~= nil then
-				table.insert(normals, normal);
+			table.insert(vertices, vec.new(svert))
+			table.insert(normals, normal)
+			if self.ThicknessMap ~= nil then
+				local t
+				-- unique thickness at polar point
+				if (w == 0) or (w == self.WSteps) then
+					t = self.BasicThickness + ((1 - self.ThicknessMap:GetHeight(0, w/self.WSteps)) * self.Thickness)
+				else
+					t = self.BasicThickness + ((1 - self.ThicknessMap:GetHeight(u/self.USteps, w/self.WSteps)) * self.Thickness)
+				end
+				table.insert(thicks, t)
 			end
 		end
 	end
@@ -199,17 +296,23 @@ function BiParametric.GetVertices(self)
 		for i=1,nverts do
 			local norm = normals[i]
 			local vert = vertices[i]
-			local nvert = vec3_add(vec3_mults(norm, self.Thickness), vert)
+			local nvert
+			if self.ThicknessMap ~= nil then
+				local thick = thicks[i]
+				nvert = vec3_add(vec3_mults(norm, thick), vert)
+			else
+				nvert = vec3_add(vec3_mults(norm, self.Thickness), vert)
+			end
 
 			table.insert(vertices, nvert)
 		end
 	end
 
-	return vertices, normals;
+	return vertices, normals
 end
 
 function BiParametric.GetMesh(self)
-	local amesh = trimesh();
+	local amesh = trimesh()
 
 	self.Vertices, self.Normals = self:GetVertices()
 
@@ -225,7 +328,6 @@ function BiParametric.GetMesh(self)
 	return amesh
 end
 
---[[
 function BiParametric.RenderBegin(self, graphPort)
 	if self.Transform ~= nil then
 		graphPort:SaveTransform()
@@ -249,15 +351,14 @@ function BiParametric.RenderEnd(self, graphPort)
 		graphPort:RestoreTransform()
 	end
 end
---]]
+
 function BiParametric.RenderSelf(self, graphPort)
 	if self.ShapeMesh == nil then
 		self.ShapeMesh = self:GetMesh()
 	end
 
-	graphPort:DisplayMesh(self.ShapeMesh);
+	graphPort:DisplayMesh(self.ShapeMesh)
 end
---[[
 
 function BiParametric.Render(self, graphPort)
 	-- From Actor
@@ -274,6 +375,5 @@ end
 function BiParametric.SetTransform(self, atrans)
 	self.Transform = atrans
 end
---]]
 
 return BiParametric

@@ -8,18 +8,18 @@ require ("lfs")
 local class = require "pl.class"
 
 class.FileManager()
-function FileManager:_init(o)
-	o = o or {}		-- create object if user does not provide one
+function FileManager:_init(parms)
+	parms = parms or {}		-- create object if user does not provide one
 
-	self.NAME = "NewModel.lua"
+	self.NAME = parms.DefaultName
 	self.fileopener = iup.filedlg{
 		DIALOGTYPE="OPEN",
-		EXTFILTER="Lua Files|*.lua|STL Files|*.stl|",
+		EXTFILTER=parms.ExtFilter,
 		TITLE="BanateCAD Files",
 		}
 	self.filesaver = iup.filedlg{
 		DIALOGTYPE="SAVE",
-		EXTFILTER="Lua Files|*.lua|STL Files|*.stl|",
+		EXTFILTER=parms.ExtFilter,
 		TITLE="BanateCAD Files",
 		}
 end

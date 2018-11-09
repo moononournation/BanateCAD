@@ -68,7 +68,7 @@ end
 
 function MenuController.do_import_stl(self)
 	-- get a filename
-	local filename,err = defaultfilemanager:GetOpenFileName();
+	local filename,err = stlfilemanager:GetOpenFileName();
 
 	if filename == nil then
 		return iup.DEFAULT
@@ -95,14 +95,12 @@ end
 --    writer.WriteMesh(trimesh)
 function MenuController.do_export_stl(self)
 	-- get a filename
-	local filename = "file.stl"
---[[
-	local filename,err = defaultfilemanager:GetSaveFileName();
+	--local filename = "file.stl"
+	local filename,err = stlfilemanager:GetSaveFileName();
 
 	if filename == nil then
 		return iup.DEFAULT
 	end
---]]
 
 	-- open up the file
 	local f= io.open(filename, 'w+')
@@ -117,9 +115,12 @@ print(f)
 		if (cmd.command == CADVM.TRIMESH) then
 			writer:WriteMesh(cmd.value, "BanateCAD")
 		elseif cmd.command == CADVM.SHAPE then
-			local amesh = cmd.value:GetMesh()
-			writer:WriteMesh(amesh, "BanateCAD")
-
+			if type(cmd.value == "BiParametric") then
+				writer:WriteBiParametric(cmd.value, "BiParametric")
+			else
+				local amesh = cmd.value:GetMesh()
+				writer:WriteMesh(amesh, "BanateCAD")
+			end
 		end
 	end
 
