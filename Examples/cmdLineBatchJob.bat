@@ -2,17 +2,21 @@ cd ..
 lua Examples\cmdLineBatchJob.lua
 cd Examples
 
-@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moonLamp2inches.stl -o stl\moonLamp2inches.stl
-@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moonLamp3inches.stl -o stl\moonLamp3inches.stl
-@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moonLamp4inches.stl -o stl\moonLamp4inches.stl
-@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moonLamp5inches.stl -o stl\moonLamp5inches.stl
-@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moonLamp6inches.stl -o stl\moonLamp6inches.stl
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_1_inch.stl -o stl\moon_lamp_1_inch.stl
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_1.5_inches.stl -o stl\moon_lamp_1.5_inches.stl
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_2_inches.stl -o stl\moon_lamp_2_inches.stl
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_2.5_inches.stl -o stl\moon_lamp_2.5_inches.stl
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_3_inches.stl -o stl\moon_lamp_3_inches.stl
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_3.5_inches.stl -o stl\moon_lamp_3.5_inches.stl
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_4_inches.stl -o stl\moon_lamp_4_inches.stl
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_5_inches.stl -o stl\moon_lamp_5_inches.stl
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_6_inches.stl -o stl\moon_lamp_6_inches.stl
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_7_inches.stl -o stl\moon_lamp_7_inches.stl
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_8_inches.stl -o stl\moon_lamp_8_inches.stl
 
-@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moonLamp2inches.stl -o stl\moonLamp2inchesY30.stl -s mlx\MeshLabRotateY30.mlx
-@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moonLamp2inchesOuterOnly.stl -o stl\moonLamp2inchesY30OuterOnly.stl -s mlx\MeshLabRotateY30.mlx
-@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moonLamp2inches.stl -o stl\moonLamp2inchesY175.stl -s mlx\MeshLabRotateY75.mlx
-@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moonLamp2inchesOuterOnly.stl -o stl\moonLamp2inchesY175OuterOnly.stl -s mlx\MeshLabRotateY175.mlx
-@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moonLamp5inches.stl -o stl\moonLamp5inchesY15.stl -s mlx\MeshLabRotateY15.mlx
-@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moonLamp5inchesOuterOnly.stl -o stl\moonLamp5inchesY15OuterOnly.stl -s mlx\MeshLabRotateY15.mlx
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_1.5_inches.stl -o stl\moon_lamp_1.5_inchesY170.stl -s mlx\MeshLabRotateY70.mlx
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_1.5_inchesOuterOnly.stl -o stl\moon_lamp_1.5_inchesY170OuterOnly.stl -s mlx\MeshLabRotateY170.mlx
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_5inches.stl -o stl\moon_lamp_5inchesY10.stl -s mlx\MeshLabRotateY10.mlx
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_5inchesOuterOnly.stl -o stl\moon_lamp_5inchesY10OuterOnly.stl -s mlx\MeshLabRotateY10.mlx
 
 pause

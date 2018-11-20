@@ -17,13 +17,15 @@ require "STLCodec"
 require "Icosahedron"
 require "shape_ellipsoid"
 
+local inchesToMmConstant = 25.4
+
 function GenerateMoon(outputSize, refinementLevel, outputName, genOuterSTL)
 	local extrudeSize = 0.4
-	-- local heightFactor = 0.4 -- bump map height factor
-	local heightFactor = 0.9 -- double value for moonBumpAddInvertedColorMap
-	local shadowFactor = 5 -- larger is darker
-	local h = outputSize * heightFactor
-	local r = ((outputSize * 25.4) / 2) - (h / 2)
+	local heightFactor = 0.025 -- suface detail height
+	local basicHeight = 0.050 -- inches
+	local shadowFactor = 6 -- larger is darker
+	local h = (basicHeight + (outputSize * heightFactor)) * inchesToMmConstant
+	local r = ((outputSize * inchesToMmConstant) / 2) - h
 	local t = extrudeSize * shadowFactor --color map thickness
 	
 	local heightmap = ImageSampler({
@@ -90,9 +92,14 @@ function GenerateMoon(outputSize, refinementLevel, outputName, genOuterSTL)
 	end
 end
 
-GenerateMoon(2, 144, 'moonLamp2inches', true)
--- GenerateMoon(2.5, 180, 'moonLamp2.5inches', true)
-GenerateMoon(3, 216, 'moonLamp3inches', false)
-GenerateMoon(4, 288, 'moonLamp4inches', false)
-GenerateMoon(5, 360, 'moonLamp5inches', true)
-GenerateMoon(6, 432, 'moonLamp6inches', false)
+GenerateMoon(1.0, 96, 'moon_lamp_1_inch', false)
+GenerateMoon(1.5, 144, 'moon_lamp_1.5_inches', true)
+GenerateMoon(2.0, 192, 'moon_lamp_2_inches', false)
+GenerateMoon(2.5, 240, 'moon_lamp_2.5_inches', false)
+GenerateMoon(3.0, 288, 'moon_lamp_3_inches', false)
+GenerateMoon(3.5, 336, 'moon_lamp_3.5_inches', false)
+GenerateMoon(4.0, 384, 'moon_lamp_4_inches', false)
+GenerateMoon(5.0, 480, 'moon_lamp_5_inches', false)
+GenerateMoon(6.0, 576, 'moon_lamp_6_inches', false)
+GenerateMoon(7.0, 672, 'moon_lamp_7_inches', false)
+GenerateMoon(8.0, 768, 'moon_lamp_8_inches', false)
