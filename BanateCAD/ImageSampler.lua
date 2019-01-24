@@ -17,6 +17,7 @@ function ImageSampler:_init(params)
 		-- Need to load the image data
 		-- Assume a .png file for now
 		self.Image = gd.createFromPng(self.Filename)
+		assert(self.Image, "Failed to load image: " .. self.Filename)
 	end
 
 	self.Width, self.Height = self.Image:sizeXY()
