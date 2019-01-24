@@ -26,6 +26,12 @@ cd Examples
 @rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_2_inches.stl -o stl\moon_lamp_2_inchesY170.stl -s mlx\MeshLabRotateY70.mlx
 @rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_2.5_inchesOuterOnly.stl -o stl\moon_lamp_2.5_inchesY170OuterOnly.stl -s mlx\MeshLabRotateY170.mlx
 @rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_2.5_inches.stl -o stl\moon_lamp_2.5_inchesY170.stl -s mlx\MeshLabRotateY70.mlx
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_3_inchesOuterOnly.stl -o stl\moon_lamp_3_inchesY170OuterOnly.stl -s mlx\MeshLabRotateY170.mlx
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_3_inches.stl -o stl\moon_lamp_3_inchesY170.stl -s mlx\MeshLabRotateY70.mlx
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_3.5_inchesOuterOnly.stl -o stl\moon_lamp_3.5_inchesY170OuterOnly.stl -s mlx\MeshLabRotateY170.mlx
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_3.5_inches.stl -o stl\moon_lamp_3.5_inchesY170.stl -s mlx\MeshLabRotateY70.mlx
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_4_inchesOuterOnly.stl -o stl\moon_lamp_4_inchesY170OuterOnly.stl -s mlx\MeshLabRotateY170.mlx
+@rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_4_inches.stl -o stl\moon_lamp_4_inchesY170.stl -s mlx\MeshLabRotateY70.mlx
 @rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_5inchesOuterOnly.stl -o stl\moon_lamp_5inchesY10OuterOnly.stl -s mlx\MeshLabRotateY10.mlx
 @rem "C:\Program Files\VCG\MeshLab\meshlabserver" -i moon_lamp_5inches.stl -o stl\moon_lamp_5inchesY10.stl -s mlx\MeshLabRotateY10.mlx
 
