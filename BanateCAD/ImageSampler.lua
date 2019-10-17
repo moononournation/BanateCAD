@@ -10,6 +10,7 @@ function ImageSampler:_init(params)
 	self.Image = params.Image or nil
 	self.Interpolate = params.Interpolate or false
 	self.Blur = params.Blur or nil
+	self.Invert = params.Invert or nill
 
 	if params.Image == nil then
 		self.Filename = params.Filename or nil
@@ -43,7 +44,7 @@ end
 
 function luminance(rgb)
 	local lum = vec3_dot({0.2125, 0.7154, 0.0721}, rgb);
-	return lum;
+		return lum;
 end
 
 function ImageSampler.GetLuminance(self, x, y)
@@ -53,7 +54,11 @@ function ImageSampler.GetLuminance(self, x, y)
 	local b = self.Image:blue(pixel)
 
 	-- Turn it to a grayscale value
-	return luminance({r/255,g/255,b/255,1})
+	if self.Invert ~= nil then
+		return 1 - luminance({r/255,g/255,b/255,1});
+	else
+		return luminance({r/255,g/255,b/255,1});
+	end
 end
 
 function ImageSampler.GetPixelHeight(self, x, y)
