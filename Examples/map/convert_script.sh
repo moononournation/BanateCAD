@@ -1,16 +1,12 @@
 #!/bin/sh
-convert Moon_23k_Color_v001.tif -type grayscale -level 0,100%,1.8 moonColorMap.23k.png
-convert Moon_23k_Disp_v002.tif -type grayscale -level 0,100%,1.8 moonBumpMap.23k.png
+#curl https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/lroc_color_poles.tif -o lroc_color_poles.tif
+#curl https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/ldem_64_uint.tif -o ldem_64_uint.tif
 
-convert moonColorMap.23k.png -negate +level 0,50% invertedColorMap.5.tif
-convert moonBumpMap.23k.png +level 0,50% bumpMap.5.tif
-convert -define registry:temporary-path=/2t_data/tmp invertedColorMap.5.tif bumpMap.5.tif -background black -compose plus -layers flatten moonBumpAddInvertedColorMap.23k.png
+convert lroc_color_poles.tif -sample 5760x2880 -type grayscale moonColorMap.5k.png
+convert ldem_64_uint.tif -sample 5760x2880 -type grayscale moonBumpMap.5k.tif
 
-# convert moonColorMap.23k.png -negate +level 0,37.5% invertedColorMap3.tif
-# convert moonBumpMap.23k.png +level 0,62.5% bumpMap5.tif
-# convert -define registry:temporary-path=/2t_data/tmp invertedColorMap3.tif bumpMap5.tif -background black -compose plus -layers flatten moonBumpAddInvertedColorMap5to3.23k.png
+convert moonColorMap.5k.png -negate +level 0,50% invertedColorMap.0.5.tif
+convert moonBumpMap.5k.tif +level 0,50% bumpMap.0.5.tif
+convert invertedColorMap.0.5.tif bumpMap.0.5.tif -background black -compose plus -layers flatten moonBumpAddInvertedColorMap.5k.png
 
-# convert moonColorMap.23k.png -sample 2048x1024 moonColorMap.png
-# convert moonBumpMap.23k.png -sample 2048x1024 moonBumpMap.png
-# convert moonBumpAddInvertedColorMap.23k.png -sample 2048x1024 moonBumpAddInvertedColorMap.png
-# convert moonBumpAddInvertedColorMap5to3.23k.png -sample 2048x1024 moonBumpAddInvertedColorMap5to3.png
+convert moonBumpMap.5k.tif -sample 2048x1024 -type grayscale moonBumpMap.2k.png
