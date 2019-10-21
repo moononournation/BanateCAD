@@ -1,10 +1,10 @@
 # build command
-#docker build -t debian-imagemagick-lua-meshlab:0.1 .
+#docker build -t debian-imagemagick-lua-meshlab:0.2 .
 # push command
-#docker image tag debian-imagemagick-lua-meshlab:0.1 moononournation/debian-imagemagick-lua-meshlab:0.1
-#docker image push moononournation/debian-imagemagick-lua-meshlab:0.1
+#docker image tag debian-imagemagick-lua-meshlab:0.2 moononournation/debian-imagemagick-lua-meshlab:0.2
+#docker image push moononournation/debian-imagemagick-lua-meshlab:0.2
 # run command
-#docker run -it -v /path/to/BanateCAD:/lua debian-imagemagick-lua-meshlab
+#docker run -it -v /path/to/BanateCAD:/lua debian-imagemagick-lua-meshlab:0.2
 
 FROM debian:jessie
 
@@ -27,6 +27,8 @@ RUN apt-get update \
 		make \
         meshlab \
 		mingw-w64 \
+        xauth \
+        xvfb \
         unzip \
     && luarocks install luafilesystem \
     && luarocks install penlight \
