@@ -15,3 +15,12 @@ This is a special revised version tailor-made for modeling Moon Lamp.
 Please find more details at instructables:
 
 https://www.instructables.com/id/Print-Your-Own-Moon/
+
+## Docker Image
+
+If you encounter difficulties on setup full stack of environment to run lua scripts. Try the docker image:
+
+```
+docker run -it -v /path/to/BanateCAD:/lua debian-imagemagick-lua-meshlab
+sh Examples/cmdLineBatchJob.sh
+```
