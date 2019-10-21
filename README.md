@@ -21,6 +21,6 @@ https://www.instructables.com/id/Print-Your-Own-Moon/
 If you encounter difficulties on setup full stack of environment to run lua scripts. Try the docker image:
 
 ```
-docker run -it -v /path/to/BanateCAD:/lua debian-imagemagick-lua-meshlab
+docker run -it -v /path/to/BanateCAD:/lua moononournation/debian-imagemagick-lua-meshlab:0.2
 sh Examples/cmdLineBatchJob.sh
 ```
