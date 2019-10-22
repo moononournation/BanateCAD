@@ -33,14 +33,14 @@ function GenerateMoon(outputSize, refinementLevel, outputName, alsoGenOuterSTL)
 		Interpolate = true,
 	})
 	-- smoothen surface
-	heightmap.Blur = math.max(math.floor(((heightmap.Width / 10 /refinementLevel) - 1) / 2), 0)
+	heightmap.Blur = math.max(math.floor(((heightmap.Width / 10 /refinementLevel) + 1) / 2), 0)
 
 	local thicknessMap = ImageSampler({
 		Filename = 'Examples/map/moonColorMap.5k.png',
 		Interpolate = true,
 	})
 	-- smoothen interior shape
-	thicknessMap.Blur = math.max(math.floor(((thicknessMap.Width / 10 /refinementLevel) - 1) / 2), 0)
+	thicknessMap.Blur = math.max(math.floor(((thicknessMap.Width / 10 /refinementLevel) + 1) / 2), 0)
 
 	local vertsampler = shape_ellipsoid({
 		XRadius = r,
@@ -90,20 +90,20 @@ function GenerateMoon(outputSize, refinementLevel, outputName, alsoGenOuterSTL)
 	end
 end
 
--- GenerateMoon(1.0, 96, 'moon_lamp_1_inch', false)
--- GenerateMoon(1.25, 120, 'moon_lamp_1.25_inches', false)
--- GenerateMoon(1.5, 144, 'moon_lamp_1.5_inches', true)
--- GenerateMoon(1.75, 168, 'moon_lamp_1.75_inches', true)
+GenerateMoon(1.0, 96, 'moon_lamp_1_inch', false)
+GenerateMoon(1.25, 120, 'moon_lamp_1.25_inches', false)
+GenerateMoon(1.5, 144, 'moon_lamp_1.5_inches', false)
+GenerateMoon(1.75, 168, 'moon_lamp_1.75_inches', false)
 GenerateMoon(2.0, 192, 'moon_lamp_2_inches', true)
--- GenerateMoon(2.5, 240, 'moon_lamp_2.5_inches', true)
--- GenerateMoon(3.0, 288, 'moon_lamp_3_inches', true)
--- GenerateMoon(3.5, 336, 'moon_lamp_3.5_inches', false)
--- GenerateMoon(4.0, 384, 'moon_lamp_4_inches', false)
--- GenerateMoon(5.0, 480, 'moon_lamp_5_inches', true)
--- GenerateMoon(6.0, 576, 'moon_lamp_6_inches', false)
+GenerateMoon(2.5, 240, 'moon_lamp_2.5_inches', false)
+GenerateMoon(3.0, 288, 'moon_lamp_3_inches', false)
+GenerateMoon(3.5, 336, 'moon_lamp_3.5_inches', false)
+GenerateMoon(4.0, 384, 'moon_lamp_4_inches', false)
+GenerateMoon(5.0, 480, 'moon_lamp_5_inches', true)
+GenerateMoon(6.0, 576, 'moon_lamp_6_inches', false)
+
 -- GenerateMoon(7.0, 672, 'moon_lamp_7_inches', false)
 -- GenerateMoon(8.0, 768, 'moon_lamp_8_inches', false)
-
 -- GenerateMoon(9.0, 864, 'moon_lamp_9_inches', false)
 -- GenerateMoon(10.0, 960, 'moon_lamp_10_inches', false)
 -- GenerateMoon(11.0, 1056, 'moon_lamp_11_inches', false)
