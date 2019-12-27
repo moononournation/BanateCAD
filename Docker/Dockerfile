@@ -4,7 +4,7 @@
 #docker image tag debian-imagemagick-lua-meshlab:0.2 moononournation/debian-imagemagick-lua-meshlab:0.2
 #docker image push moononournation/debian-imagemagick-lua-meshlab:0.2
 # run command
-#docker run -it -v /path/to/BanateCAD:/lua debian-imagemagick-lua-meshlab:0.2
+#docker run -it -v /path/to/BanateCAD:/lua moononournation/debian-imagemagick-lua-meshlab:0.2
 
 FROM debian:jessie
 
