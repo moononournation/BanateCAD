@@ -1,3 +1,9 @@
+-- settings
+local extrudeSize = 0.4 -- mm
+local constantHeightSize = 0.050 -- basic height in inches
+local variableHeightFactor = 0.025 -- height factor growth with output size
+local shadowFactor = 6 -- larger is thicker and darker
+
 require "BAppContext"
 local appctx = BAppContext({
 	Modules={
@@ -20,11 +26,7 @@ require "shape_ellipsoid"
 local inchesToMmConstant = 25.4
 
 function GenerateMoon(outputSize, refinementLevel, outputName, alsoGenOuterSTL)
-	local extrudeSize = 0.4
-	local heightFactor = 0.025 -- suface detail height
-	local basicHeight = 0.050 -- inches
-	local shadowFactor = 6 -- larger is darker
-	local h = (basicHeight + (outputSize * heightFactor)) * inchesToMmConstant
+	local h = (constantHeightSize + (outputSize * variableHeightFactor)) * inchesToMmConstant
 	local r = ((outputSize * inchesToMmConstant) / 2) - h
 	local t = extrudeSize * shadowFactor --color map thickness
 
