@@ -96,7 +96,7 @@ end
 -- GenerateMoon(1.25, 120, 'moon_lamp_1.25_inches', false)
 -- GenerateMoon(1.5, 144, 'moon_lamp_1.5_inches', false)
 -- GenerateMoon(1.75, 168, 'moon_lamp_1.75_inches', false)
--- GenerateMoon(2.0, 192, 'moon_lamp_2_inches', true)
+GenerateMoon(2.0, 192, 'moon_lamp_2_inches', true)
 -- GenerateMoon(2.5, 240, 'moon_lamp_2.5_inches', false)
 -- GenerateMoon(3.0, 288, 'moon_lamp_3_inches', false)
 -- GenerateMoon(3.5, 336, 'moon_lamp_3.5_inches', false)
@@ -127,7 +127,7 @@ end
 -- GenerateMoon(2.0, 360, 'moon_lamp_2_inches_refinement_level_360', true)
 -- GenerateMoon(4.0, 360, 'moon_lamp_4_inches_refinement_level_360', true)
 -- GenerateMoon(5.0, 360, 'moon_lamp_5_inches_refinement_level_360', false)
-GenerateMoon(6.0, 360, 'moon_lamp_6_inches_refinement_level_360', false)
+-- GenerateMoon(6.0, 360, 'moon_lamp_6_inches_refinement_level_360', false)
 -- GenerateMoon(7.0, 360, 'moon_lamp_7_inches_refinement_level_360', false)
 -- GenerateMoon(8.0, 360, 'moon_lamp_8_inches_refinement_level_360', false)
 
