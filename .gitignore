@@ -1,9 +1,7 @@
-.vscode
+.*
 *.3mf
 *.gcode
-*.lnk
 *.mix
 *.stl
-*.xcf
 *.tif
-*.23k.png
+*.xz
