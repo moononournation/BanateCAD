@@ -95,7 +95,7 @@ function GenerateMoon(outputSize, refinementLevel, outputName, alsoGenOuterSTL)
 	end
 end
 
--- GenerateMoon(2.0, 240, 'moon_lamp_2_inches', false)
+GenerateMoon(2.0, 240, 'moon_lamp_2_inches', true)
 -- GenerateMoon(2.5, 300, 'moon_lamp_2.5_inches', false)
 -- GenerateMoon(3.0, 360, 'moon_lamp_3_inches', false)
 -- GenerateMoon(3.5, 420, 'moon_lamp_3.5_inches', false)
@@ -115,21 +115,19 @@ end
 -- GenerateMoon(16.0, 1920, 'moon_lamp_16_inches', false)
 
 -- fixed refinement level to cater Thingiverse 262144000 size limit
-GenerateMoon(2.0, 360, 'moon_lamp_2_inches_refinement_level_360', true)
-GenerateMoon(3.0, 360, 'moon_lamp_3_inches_refinement_level_360', false)
-GenerateMoon(4.0, 360, 'moon_lamp_4_inches_refinement_level_360', true)
-GenerateMoon(5.0, 360, 'moon_lamp_5_inches_refinement_level_360', false)
-GenerateMoon(6.0, 360, 'moon_lamp_6_inches_refinement_level_360', false)
-GenerateMoon(7.0, 360, 'moon_lamp_7_inches_refinement_level_360', false)
-GenerateMoon(8.0, 360, 'moon_lamp_8_inches_refinement_level_360', true)
-GenerateMoon(9.0, 360, 'moon_lamp_9_inches_refinement_level_360', false)
-GenerateMoon(10, 360, 'moon_lamp_10_inches_refinement_level_360', false)
-GenerateMoon(11, 360, 'moon_lamp_11_inches_refinement_level_360', false)
-GenerateMoon(12, 360, 'moon_lamp_12_inches_refinement_level_360', false)
-GenerateMoon(13, 360, 'moon_lamp_13_inches_refinement_level_360', false)
-GenerateMoon(14, 360, 'moon_lamp_14_inches_refinement_level_360', false)
-GenerateMoon(15, 360, 'moon_lamp_15_inches_refinement_level_360', false)
-GenerateMoon(16, 360, 'moon_lamp_16_inches_refinement_level_360', false)
+-- GenerateMoon(4.0, 360, 'moon_lamp_4_inches_refinement_level_360', true)
+-- GenerateMoon(5.0, 360, 'moon_lamp_5_inches_refinement_level_360', false)
+-- GenerateMoon(6.0, 360, 'moon_lamp_6_inches_refinement_level_360', false)
+-- GenerateMoon(7.0, 360, 'moon_lamp_7_inches_refinement_level_360', false)
+-- GenerateMoon(8.0, 360, 'moon_lamp_8_inches_refinement_level_360', true)
+-- GenerateMoon(9.0, 360, 'moon_lamp_9_inches_refinement_level_360', false)
+-- GenerateMoon(10, 360, 'moon_lamp_10_inches_refinement_level_360', false)
+-- GenerateMoon(11, 360, 'moon_lamp_11_inches_refinement_level_360', false)
+-- GenerateMoon(12, 360, 'moon_lamp_12_inches_refinement_level_360', false)
+-- GenerateMoon(13, 360, 'moon_lamp_13_inches_refinement_level_360', false)
+-- GenerateMoon(14, 360, 'moon_lamp_14_inches_refinement_level_360', false)
+-- GenerateMoon(15, 360, 'moon_lamp_15_inches_refinement_level_360', false)
+-- GenerateMoon(16, 360, 'moon_lamp_16_inches_refinement_level_360', false)
 
 -- fixed refinement level to cater Thingiverse 262144000 size limit after xz
 -- GenerateMoon(6, 600, 'moon_lamp_6_inches_refinement_level_600', false)
