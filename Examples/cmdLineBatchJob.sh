@@ -2,7 +2,8 @@
 lua Examples/cmdLineBatchJob.lua
 
 mkdir -p Examples/stl
-xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_2_inches.stl -o Examples/stl/moon_lamp_2_inches.stl
+xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.5_inches.stl -o Examples/stl/moon_lamp_1.5_inches.stl
+# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_2_inches.stl -o Examples/stl/moon_lamp_2_inches.stl
 # xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_2.5_inches.stl -o Examples/stl/moon_lamp_2.5_inches.stl
 # xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_3_inches.stl -o Examples/stl/moon_lamp_3_inches.stl
 # xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_3.5_inches.stl -o Examples/stl/moon_lamp_3.5_inches.stl
@@ -43,8 +44,10 @@ xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_2_inch
 # xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_4_inches_refinement_level_360.stl -o Examples/stl/moon_lamp_4_inches_refinement_level_360Y10.stl -s Examples/mlx/MeshLabRotateY10.mlx
 
 #Moon Model for hanging
-xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_2_inchesOuterOnly.stl -o Examples/stl/moon_lamp_2_inchesY170OuterOnly.stl -s Examples/mlx/MeshLabRotateY170.mlx
-xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_2_inches.stl -o Examples/stl/moon_lamp_2_inchesY170.stl -s Examples/mlx/MeshLabRotateY170.mlx
+xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.5_inchesOuterOnly.stl -o Examples/stl/moon_lamp_1.5_inchesY170OuterOnly.stl -s Examples/mlx/MeshLabRotateY170.mlx
+xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.5_inches.stl -o Examples/stl/moon_lamp_1.5_inchesY170.stl -s Examples/mlx/MeshLabRotateY170.mlx
+# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_2_inchesOuterOnly.stl -o Examples/stl/moon_lamp_2_inchesY170OuterOnly.stl -s Examples/mlx/MeshLabRotateY170.mlx
+# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_2_inches.stl -o Examples/stl/moon_lamp_2_inchesY170.stl -s Examples/mlx/MeshLabRotateY170.mlx
 # xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_8_inches_refinement_level_360OuterOnly.stl -o Examples/stl/moon_lamp_8_inches_refinement_level_360Y165OuterOnly.stl -s Examples/mlx/MeshLabRotateY165.mlx
 # xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_8_inches_refinement_level_360.stl -o Examples/stl/moon_lamp_8_inches_refinement_level_360Y165.stl -s Examples/mlx/MeshLabRotateY165.mlx
 

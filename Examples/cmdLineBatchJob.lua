@@ -31,16 +31,16 @@ function GenerateMoon(outputSize, refinementLevel, outputName, alsoGenOuterSTL)
 	local r = ((outputSize * inchesToMmConstant) / 2) - h
 
 	local heightmap = ImageSampler({
-		-- Filename = 'Examples/map/moonBumpAddInvertedColorMap.3.6k.png',
-		Filename = 'Examples/map/moonBumpAddInvertedColorMap.6k.png',
+		Filename = 'Examples/map/moonBumpAddInvertedColorMap.3.6k.png',
+		-- Filename = 'Examples/map/moonBumpAddInvertedColorMap.6k.png',
 		Interpolate = true,
 	})
 	-- smoothen surface
 	heightmap.Blur = math.max(math.ceil(((heightmap.Width / 10 /refinementLevel) - 1) / 2), 0)
 
 	local thicknessMap = ImageSampler({
-		-- Filename = 'Examples/map/moonColorMap.3.6k.png',
-		Filename = 'Examples/map/moonColorMap.6k.png',
+		Filename = 'Examples/map/moonColorMap.3.6k.png',
+		-- Filename = 'Examples/map/moonColorMap.6k.png',
 		Interpolate = true,
 	})
 	-- smoothen interior shape
@@ -95,7 +95,8 @@ function GenerateMoon(outputSize, refinementLevel, outputName, alsoGenOuterSTL)
 	end
 end
 
-GenerateMoon(2.0, 240, 'moon_lamp_2_inches', true)
+GenerateMoon(1.5, 180, 'moon_lamp_1.5_inches', true)
+-- GenerateMoon(2.0, 240, 'moon_lamp_2_inches', true)
 -- GenerateMoon(2.5, 300, 'moon_lamp_2.5_inches', false)
 -- GenerateMoon(3.0, 360, 'moon_lamp_3_inches', false)
 -- GenerateMoon(3.5, 420, 'moon_lamp_3.5_inches', false)
