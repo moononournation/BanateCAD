@@ -40,15 +40,11 @@ xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.5_in
 # xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_16_inches_refinement_level_360.stl -o Examples/stl/moon_lamp_16_inches_refinement_level_360.stl
 
 #Moon model for placing on Desktop
-# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_4_inches_refinement_level_360OuterOnly.stl -o Examples/stl/moon_lamp_4_inches_refinement_level_360Y10OuterOnly.stl -s Examples/mlx/MeshLabRotateY10.mlx
-# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_4_inches_refinement_level_360.stl -o Examples/stl/moon_lamp_4_inches_refinement_level_360Y10.stl -s Examples/mlx/MeshLabRotateY10.mlx
+# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_4_inches_refinement_level_360.stl -o Examples/stl/moon_lamp_4_inches_refinement_level_360Y180.stl -s Examples/mlx/MeshLabRotateY180.mlx
 
 #Moon Model for hanging
-xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.5_inchesOuterOnly.stl -o Examples/stl/moon_lamp_1.5_inchesY170OuterOnly.stl -s Examples/mlx/MeshLabRotateY170.mlx
-xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.5_inches.stl -o Examples/stl/moon_lamp_1.5_inchesY170.stl -s Examples/mlx/MeshLabRotateY170.mlx
-# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_2_inchesOuterOnly.stl -o Examples/stl/moon_lamp_2_inchesY170OuterOnly.stl -s Examples/mlx/MeshLabRotateY170.mlx
-# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_2_inches.stl -o Examples/stl/moon_lamp_2_inchesY170.stl -s Examples/mlx/MeshLabRotateY170.mlx
-# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_8_inches_refinement_level_360OuterOnly.stl -o Examples/stl/moon_lamp_8_inches_refinement_level_360Y165OuterOnly.stl -s Examples/mlx/MeshLabRotateY165.mlx
+# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.5_inches.stl -o Examples/stl/moon_lamp_1.5_inchesY170.stl -s Examples/mlx/MeshLabRotateY170.mlx
+# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_2_inches_refinement_level_360.stl -o Examples/stl/moon_lamp_2_inches_refinement_level_360Y170.stl -s Examples/mlx/MeshLabRotateY170.mlx
 # xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_8_inches_refinement_level_360.stl -o Examples/stl/moon_lamp_8_inches_refinement_level_360Y165.stl -s Examples/mlx/MeshLabRotateY165.mlx
 
 #fixed refinement level to cater Thingiverse 262144000 size limit after xz

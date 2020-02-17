@@ -1,9 +1,8 @@
 -- settings
-local extrudeSize = 0.4 -- mm
-local minWallFactor = 1.5 -- ratio, extrudeSize multiplier, a little bit thicker than extrudeSize to avoid holes
+local basicWallSize = 0.6 -- mm, add a little bit on extrude size
 local shadowSize = 2.4 -- mm, larger is thicker and darker
-local constantHeightSize = 0.63 -- mm, basic surface height
-local variableHeightFactor = 0.013 -- ratio, surface height factor growth with output size
+local constantHeightSize = 0.7 -- mm, basic surface height
+local variableHeightFactor = 0.011 -- ratio, surface height factor growth with output size
 
 require "BAppContext"
 local appctx = BAppContext({
@@ -32,7 +31,6 @@ function GenerateMoon(outputSize, refinementLevel, outputName, alsoGenOuterSTL)
 
 	local heightmap = ImageSampler({
 		Filename = 'Examples/map/moonBumpAddInvertedColorMap.3.6k.png',
-		-- Filename = 'Examples/map/moonBumpAddInvertedColorMap.6k.png',
 		Interpolate = true,
 	})
 	-- smoothen surface
@@ -40,7 +38,6 @@ function GenerateMoon(outputSize, refinementLevel, outputName, alsoGenOuterSTL)
 
 	local thicknessMap = ImageSampler({
 		Filename = 'Examples/map/moonColorMap.3.6k.png',
-		-- Filename = 'Examples/map/moonColorMap.6k.png',
 		Interpolate = true,
 	})
 	-- smoothen interior shape
@@ -67,8 +64,7 @@ function GenerateMoon(outputSize, refinementLevel, outputName, alsoGenOuterSTL)
 		VertexFunction = dispSampler,
 		Thickness = -shadowSize,
 		ThicknessMap = thicknessMap,
-		BasicThickness = -extrudeSize,
-		MinThickness = -(extrudeSize * minWallFactor),
+		BasicThickness = -basicWallSize,
 	})
 
 	--direct output to STL
@@ -95,8 +91,8 @@ function GenerateMoon(outputSize, refinementLevel, outputName, alsoGenOuterSTL)
 	end
 end
 
-GenerateMoon(1.5, 180, 'moon_lamp_1.5_inches', true)
--- GenerateMoon(2.0, 240, 'moon_lamp_2_inches', true)
+GenerateMoon(1.5, 180, 'moon_lamp_1.5_inches', false)
+-- GenerateMoon(2.0, 240, 'moon_lamp_2_inches', false)
 -- GenerateMoon(2.5, 300, 'moon_lamp_2.5_inches', false)
 -- GenerateMoon(3.0, 360, 'moon_lamp_3_inches', false)
 -- GenerateMoon(3.5, 420, 'moon_lamp_3.5_inches', false)
@@ -116,11 +112,11 @@ GenerateMoon(1.5, 180, 'moon_lamp_1.5_inches', true)
 -- GenerateMoon(16.0, 1920, 'moon_lamp_16_inches', false)
 
 -- fixed refinement level to cater Thingiverse 262144000 size limit
--- GenerateMoon(4.0, 360, 'moon_lamp_4_inches_refinement_level_360', true)
+-- GenerateMoon(4.0, 360, 'moon_lamp_4_inches_refinement_level_360', false)
 -- GenerateMoon(5.0, 360, 'moon_lamp_5_inches_refinement_level_360', false)
 -- GenerateMoon(6.0, 360, 'moon_lamp_6_inches_refinement_level_360', false)
 -- GenerateMoon(7.0, 360, 'moon_lamp_7_inches_refinement_level_360', false)
--- GenerateMoon(8.0, 360, 'moon_lamp_8_inches_refinement_level_360', true)
+-- GenerateMoon(8.0, 360, 'moon_lamp_8_inches_refinement_level_360', false)
 -- GenerateMoon(9.0, 360, 'moon_lamp_9_inches_refinement_level_360', false)
 -- GenerateMoon(10, 360, 'moon_lamp_10_inches_refinement_level_360', false)
 -- GenerateMoon(11, 360, 'moon_lamp_11_inches_refinement_level_360', false)
