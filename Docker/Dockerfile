@@ -47,8 +47,8 @@ RUN apt-get update \
     && dpkg-buildpackage -us -uc \
     && cd .. \
     && rm -r lua-gd \
-    && dpkg -i lua-gd_2.0.33r3-1_amd64.deb \
-    && rm lua-gd_2.0.33r3-1_amd64.deb \
+    && dpkg -i lua-gd_2.0.33r3-1_*.deb \
+    && rm lua-gd_2.0.33r3-1_*.deb \
     && mkdir iup-3.27-Lua51_Linux319_64_lib \
     && cd iup-3.27-Lua51_Linux319_64_lib \
     && curl -L "https://ayera.dl.sourceforge.net/project/iup/3.27/Linux%20Libraries/Lua51/iup-3.27-Lua51_Linux319_64_lib.tar.gz"  | tar -xzf - \
