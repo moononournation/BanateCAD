@@ -1,12 +1,17 @@
 # build command
-#docker build -t debian-imagemagick-lua-meshlab:0.2 .
+#docker build -t moononournation/debian-imagemagick-lua-meshlab:1.0.1 .
 # push command
-#docker image tag debian-imagemagick-lua-meshlab:0.2 moononournation/debian-imagemagick-lua-meshlab:0.2
-#docker image push moononournation/debian-imagemagick-lua-meshlab:0.2
-# run command
-#docker run -it -v /path/to/BanateCAD:/lua moononournation/debian-imagemagick-lua-meshlab:0.2
+#docker image push moononournation/debian-imagemagick-lua-meshlab:1.0.1
 
-FROM debian:jessie
+#building Multi-Arch Images commands
+#docker buildx ls
+#docker buildx create --use
+#docker buildx build --platform linux/amd64,linux/arm -t moononournation/debian-imagemagick-lua-meshlab:1.0.1 --push .
+
+# run command
+#docker run -it -v /path/to/BanateCAD:/lua moononournation/debian-imagemagick-lua-meshlab:1.0.1
+
+FROM debian:jessie-slim
 
 RUN apt-get update \
     && apt-get upgrade -y \
