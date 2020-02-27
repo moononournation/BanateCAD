@@ -22,7 +22,7 @@ require "shape_ellipsoid"
 
 function GenerateMoon(outputSize, refinementLevel, basicWallSize, shadowSize, basicHeightSize, outputName, alsoGenOuterSTL)
 	local h = basicHeightSize + (outputSize * variableHeightFactor)
-	local r = (outputSize / 2) - heightSize
+	local r = (outputSize / 2) - basicHeightSize
 
 	local heightmap = ImageSampler({
 		-- Filename = 'Examples/map/moonBumpAddInvertedColorMap.21.6k.png',
@@ -104,10 +104,10 @@ local inchesToMmConstant = 25.4
 
 -- Resin 3D printing
 GenerateMoon(1.00 * inchesToMmConstant, 180, 0.1, 1.6, 0.9, 'moon_lamp_1.00_inches', false)
--- GenerateMoon(1.25 * inchesToMmConstant, 180, 0.1, 1.6, 0.9, 'moon_lamp_1.25_inches', false)
--- GenerateMoon(1.50 * inchesToMmConstant, 180, 0.1, 1.6, 0.9, 'moon_lamp_1.50_inches', false)
--- GenerateMoon(1.75 * inchesToMmConstant, 180, 0.1, 1.6, 0.9, 'moon_lamp_1.75_inches', false)
--- GenerateMoon(2.00 * inchesToMmConstant, 180, 0.1, 1.6, 0.9, 'moon_lamp_2.00_inches', false)
+GenerateMoon(1.25 * inchesToMmConstant, 180, 0.1, 1.6, 0.9, 'moon_lamp_1.25_inches', false)
+GenerateMoon(1.50 * inchesToMmConstant, 180, 0.1, 1.6, 0.9, 'moon_lamp_1.50_inches', false)
+GenerateMoon(1.75 * inchesToMmConstant, 180, 0.1, 1.6, 0.9, 'moon_lamp_1.75_inches', false)
+GenerateMoon(2.00 * inchesToMmConstant, 180, 0.1, 1.6, 0.9, 'moon_lamp_2.00_inches', false)
 
 -- FDM 3D printing
 -- GenerateMoon(2.0 * inchesToMmConstant, 180, 0.6, 2.4, 0.7, 'moon_lamp_2.0_inches', false)
