@@ -7,18 +7,17 @@
 
 
 echo "shrink color map"
-# convert lroc_color_poles.tif -sample 21600x10800 -normalize -type grayscale moonColorMap.21.6k.png
+# convert lroc_color_poles.tif -sample 10800x5400 -normalize -type grayscale moonColorMap.10.8k.png
 convert lroc_color_poles.tif -sample 3600x1800 -normalize -type grayscale moonColorMap.3.6k.png
 
 echo "shrink bump map"
-# convert ldem_64_uint.tif -sample 21600x10800 -normalize -type grayscale moonBumpMap.21.6k.tif
-convert ldem_64_uint.tif -sample 3600x1800 -normalize -type grayscale moonBumpMap.3.6k.tif
-convert moonBumpMap.3.6k.tif -sample 2048x1024 -type grayscale moonBumpMap.2k.png
+# convert ldem_64_uint.tif -sample 10800x5400 -normalize -type grayscale moonBumpMap.10.8k.png
+convert ldem_64_uint.tif -sample 3600x1800 -normalize -type grayscale moonBumpMap.3.6k.png
 
 echo "combine color and bump map"
-# convert moonColorMap.21.6k.png -negate +level 0,50% invertedColorMap.21.6k.0.5.tif
-# convert moonBumpMap.21.6k.tif +level 0,50% bumpMap.21.6k.0.5.tif
-# convert invertedColorMap.21.6k.0.5.tif bumpMap.21.6k.0.5.tif -background black -compose plus -layers flatten -normalize moonBumpAddInvertedColorMap.21.6k.png
-convert moonColorMap.3.6k.png -negate +level 0,50% invertedColorMap.0.5.tif
-convert moonBumpMap.3.6k.tif +level 0,50% bumpMap.0.5.tif
-convert invertedColorMap.0.5.tif bumpMap.0.5.tif -background black -compose plus -layers flatten -normalize moonBumpAddInvertedColorMap.3.6k.png
+# convert moonColorMap.10.8k.png -negate +level 0,50% invertedColorMap.10.8k.0.5.tif
+# convert moonBumpMap.10.8k.png +level 0,50% moonBumpMap.10.8k.0.5.tif
+# convert invertedColorMap.10.8k.0.5.tif moonBumpMap.10.8k.0.5.tif -background black -compose plus -layers flatten -normalize moonBumpAddInvertedColorMap.10.8k.png
+convert moonColorMap.3.6k.png -negate +level 0,50% invertedColorMap.3.6k.0.5.tif
+convert moonBumpMap.3.6k.png +level 0,50% moonBumpMap.3.6k.0.5.tif
+convert invertedColorMap.3.6k.0.5.tif moonBumpMap.3.6k.0.5.tif -background black -compose plus -layers flatten -normalize moonBumpAddInvertedColorMap.3.6k.png

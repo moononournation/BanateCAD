@@ -2,12 +2,12 @@ local r = 30 -- radius
 local h = 3 -- height
 
 local heightsampler = ImageSampler({
-	Filename = 'map/moonBumpMap.png',
+	Filename = 'map/moonBumpMap.3.6k.png',
 })
 
 -- optional
 local colorsampler = ImageSampler({
-	Filename = 'map/moonColorMap.png',
+	Filename = 'map/moonColorMap.3.6k.png',
 })
 
 local vertsampler = shape_ellipsoid({

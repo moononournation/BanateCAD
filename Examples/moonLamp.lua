@@ -8,7 +8,7 @@ local r = ((outputSize * 25.4) / 2) - (h /2)
 local t = outputSize * shadowFactor --color map thickness
 
 local heightmap = ImageSampler({
-	Filename = 'map/moonBumpMap.2k.png',
+	Filename = 'map/moonBumpMap.3.6k.png',
 })
 
 local thicknessMap = ImageSampler({
