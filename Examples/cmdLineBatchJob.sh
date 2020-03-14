@@ -3,10 +3,14 @@
 
 mkdir -p Examples/stl
 # xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_30mm.stl -o Examples/stl/moon_lamp_30mm.stl
-# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_30mm.stl -o Examples/stl/moon_lamp_40mm.stl
-# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_30mm.stl -o Examples/stl/moon_lamp_50mm.stl
+# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_40mm.stl -o Examples/stl/moon_lamp_40mm.stl
+# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_50mm.stl -o Examples/stl/moon_lamp_50mm.stl
+# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_60mm.stl -o Examples/stl/moon_lamp_60mm.stl
 
-# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.5_inches.stl -o Examples/stl/moon_lamp_1.5_inches.stl
+# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.00_inches.stl -o Examples/stl/moon_lamp_1.00_inches.stl
+# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.25_inches.stl -o Examples/stl/moon_lamp_1.25_inches.stl
+# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.50_inches.stl -o Examples/stl/moon_lamp_1.50_inches.stl
+
 # xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_2.0_inches.stl -o Examples/stl/moon_lamp_2.0_inches.stl
 # xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_2.5_inches.stl -o Examples/stl/moon_lamp_2.5_inches.stl
 # xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_3.0_inches.stl -o Examples/stl/moon_lamp_3.0_inches.stl
@@ -33,10 +37,8 @@ mkdir -p Examples/stl
 # xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_4.0_inches.stl -o Examples/stl/moon_lamp_4_inches_Y180.stl -s Examples/mlx/MeshLabRotateY180.mlx
 
 #Moon Model for hanging
-# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_30mm.stl -o Examples/stl/moon_lamp_30mm_Y180.stl -s Examples/mlx/MeshLabRotateY180.mlx
-# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_40mm.stl -o Examples/stl/moon_lamp_40mm_Y180.stl -s Examples/mlx/MeshLabRotateY180.mlx
-# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_50mm.stl -o Examples/stl/moon_lamp_50mm_Y180.stl -s Examples/mlx/MeshLabRotateY180.mlx
-xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.0_inches.stl -o Examples/stl/moon_lamp_1.0_inches_Y170.stl -s Examples/mlx/MeshLabRotateY170.mlx
-# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.5_inches.stl -o Examples/stl/moon_lamp_1.5_inches_Y170.stl -s Examples/mlx/MeshLabRotateY170.mlx
-# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_2.0_inches.stl -o Examples/stl/moon_lamp_2.0_inches_Y170.stl -s Examples/mlx/MeshLabRotateY170.mlx
+# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.00_inches.stl -o Examples/stl/moon_lamp_1.00_inches_Y170.stl -s Examples/mlx/MeshLabRotateY170.mlx
+# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.25_inches.stl -o Examples/stl/moon_lamp_1.25_inches_Y170.stl -s Examples/mlx/MeshLabRotateY170.mlx
+# xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_1.50_inches.stl -o Examples/stl/moon_lamp_1.50_inches_Y170.stl -s Examples/mlx/MeshLabRotateY170.mlx
+xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_2.0_inches.stl -o Examples/stl/moon_lamp_2.0_inches_Y170.stl -s Examples/mlx/MeshLabRotateY170.mlx
 # xvfb-run -a -s "-screen 0 800x600x24" meshlabserver -i Examples/moon_lamp_8_inches_refinement_level_360.stl -o Examples/stl/moon_lamp_8_inches_refinement_level_360_Y165.stl -s Examples/mlx/MeshLabRotateY165.mlx

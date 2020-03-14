@@ -106,13 +106,15 @@ local inchesToMmConstant = 25.4
 -- GenerateMoon(30, 180, 0.1, 2.4, 1.1, 'moon_lamp_30mm', false)
 -- GenerateMoon(40, 240, 0.1, 2.4, 1.1, 'moon_lamp_40mm', false)
 -- GenerateMoon(50, 300, 0.1, 2.4, 1.1, 'moon_lamp_50mm', false)
+-- GenerateMoon(60, 360, 0.1, 2.4, 1.1, 'moon_lamp_60mm', false)
 
 -- FDM 3D printing (double details, 0.3 mm extruder)
-GenerateMoon(1.0 * inchesToMmConstant, 160, 0.3, 1.2, 0.7, 'moon_lamp_1.0_inches', false)
+-- GenerateMoon(1.00 * inchesToMmConstant, 160, 0.3, 1.2, 0.7, 'moon_lamp_1.00_inches', false)
 -- GenerateMoon(1.25 * inchesToMmConstant, 200, 0.3, 1.2, 0.7, 'moon_lamp_1.25_inches', false)
+-- GenerateMoon(1.50 * inchesToMmConstant, 240, 0.3, 1.2, 0.7, 'moon_lamp_1.50_inches', false)
 
 -- FDM 3D printing
--- GenerateMoon(2.0 * inchesToMmConstant, 160, 0.6, 2.4, 0.7, 'moon_lamp_2.0_inches', false)
+GenerateMoon(2.0 * inchesToMmConstant, 160, 0.6, 2.4, 0.7, 'moon_lamp_2.0_inches', false)
 -- GenerateMoon(2.5 * inchesToMmConstant, 200, 0.6, 2.4, 0.7, 'moon_lamp_2.5_inches', false)
 -- GenerateMoon(3.0 * inchesToMmConstant, 240, 0.6, 2.4, 0.7, 'moon_lamp_3.0_inches', false)
 -- GenerateMoon(3.5 * inchesToMmConstant, 280, 0.6, 2.4, 0.7, 'moon_lamp_3.5_inches', false)
