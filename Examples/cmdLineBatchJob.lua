@@ -43,7 +43,7 @@ function GenerateMoon(outputSize, refinementLevel, basicWallSize, basicShadowSiz
 		Interpolate = true,
 	})
 	-- smoothen interior shape
-	thicknessMap.Blur = math.max(math.ceil(((thicknessMap.Width / 10 /refinementLevel) - 1) / 2), 0)
+	thicknessMap.Blur = math.max(math.ceil(((thicknessMap.Width / 10 / refinementLevel) - 1) / 2), 0)
 
 	local vertsampler = shape_ellipsoid({
 		XRadius = r,
@@ -113,18 +113,21 @@ local inchesToMmConstant = 25.4
 -- GenerateMoon(50, 300, 0.1, 2.0, 1.2, 'moon_lamp_50mm', false)
 -- GenerateMoon(60, 360, 0.1, 2.0, 1.2, 'moon_lamp_60mm', false)
 
--- FDM 3D printing (double details, 0.3 mm extruder)
+-- FDM 3D printing (high details, 0.3 mm extruder)
 -- GenerateMoon(0.75 * inchesToMmConstant, 288, 0.3, 0.8, 0.8, 'moon_lamp_0.75_inches', false)
 -- GenerateMoon(1.00 * inchesToMmConstant, 384, 0.3, 0.8, 0.8, 'moon_lamp_1.00_inches', false)
 -- GenerateMoon(1.25 * inchesToMmConstant, 480, 0.3, 0.8, 0.8, 'moon_lamp_1.25_inches', false)
 -- GenerateMoon(98, 480, 0.3, 0.8, 0.8, 'moon_lamp_98mm', false)
 
--- FDM 3D printing (double details, 0.4 mm extruder)
+-- FDM 3D printing (high details, 0.4 mm extruder)
 -- GenerateMoon(1.25 * inchesToMmConstant, 200, 0.5, 0.8, 0.8, 'moon_lamp_1.25_inches', false)
--- GenerateMoon(1.50 * inchesToMmConstant, 240, 0.5, 0.8, 0.8, 'moon_lamp_1.50_inches', false)
+GenerateMoon(2.5 * inchesToMmConstant, 360, 0.4, 0.3, 0.8, 'moon_lamp_2.5_inches', false)
+-- GenerateMoon(3.0 * inchesToMmConstant, 360, 0.4, 0.4, 0.8, 'moon_lamp_3.0_inches', false)
+-- GenerateMoon(3.5 * inchesToMmConstant, 360, 0.4, 0.4, 0.8, 'moon_lamp_3.5_inches', false)
+-- GenerateMoon(4.0 * inchesToMmConstant, 360, 0.4, 0.4, 0.8, 'moon_lamp_4.0_inches', false)
 
 -- FDM 3D printing
-GenerateMoon(2.0 * inchesToMmConstant, 160, 0.5, 0.8, 0.8, 'moon_lamp_2.0_inches', false)
+-- GenerateMoon(2.0 * inchesToMmConstant, 160, 0.5, 0.8, 0.8, 'moon_lamp_2.0_inches', false)
 -- GenerateMoon(2.5 * inchesToMmConstant, 200, 0.5, 0.8, 0.8, 'moon_lamp_2.5_inches', false)
 -- GenerateMoon(3.0 * inchesToMmConstant, 240, 0.5, 0.8, 0.8, 'moon_lamp_3.0_inches', false)
 -- GenerateMoon(3.5 * inchesToMmConstant, 280, 0.5, 0.8, 0.8, 'moon_lamp_3.5_inches', false)
